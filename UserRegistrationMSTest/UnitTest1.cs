@@ -159,15 +159,33 @@ namespace UserRegistrationMSTest
         [DataRow("919445588776655")]
         [DataRow("91988776655")]
         [DataRow("91 9439433808")]
-        public void GivenInvalid_MobileNumber_ShouldReturnFalse(string invalidMobile)
+        public void GivenInvalid_MobileNumber_ShouldReturnFalse(string invalidMobileNumber)
         {
             try
             {
-                string result = patterns.ValidateMobileNumber(invalidMobile);
+                string result = patterns.ValidateMobileNumber(invalidMobileNumber);
             }
             catch (UserRegistrationCustomException e)
             {
                 Assert.AreEqual("Invalid mobile number", e.Message);
+            }
+        }
+
+        [TestMethod]
+        [DataRow("bishal@gmail")]
+        [DataRow("@bishal@gmail")]
+        [DataRow(",bishal60@gmail.com")]
+        [DataRow("`bishal@gmail")]
+        [DataRow("pbishal@rediffmail.com")]
+        public void GivenEmailId_WhenIsNotProper_ShouldReturnFalse(string invalidEmail)
+        {
+            try
+            {
+                string result = patterns.ValidateEmail(invalidEmail);
+            }
+            catch (UserRegistrationCustomException e)
+            {
+                Assert.AreEqual("Invalid email id", e.Message);
             }
         }
     }
