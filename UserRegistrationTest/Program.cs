@@ -12,6 +12,9 @@ namespace UserRegistrationTest
 
             Console.WriteLine("enter the last name:");
             Console.WriteLine(patterns.ValidateFirstName(Console.ReadLine()));
+
+            Console.WriteLine("enter the mobile number:");
+            Console.WriteLine(patterns.ValidateMobileNumber(Console.ReadLine()));
         }
     }
 }

@@ -26,11 +26,11 @@ namespace UserRegistrationMSTest
         [DataRow("Ankita")]
         [DataRow("Nilima")]
         [DataRow("Arjun")]
-        public void GivenFirstName_ShouldReturnTrue_IfFirstLettersIsCapital(string name)
+        public void GivenFirstName_ShouldReturnTrue_IfFirstLettersIsCapital(string FirstName)
         {
             try
             {
-                string result = patterns.ValidateFirstName(name);
+                string result = patterns.ValidateFirstName(FirstName);
             }
             catch (UserRegistrationCustomException e)
             {
@@ -93,11 +93,11 @@ namespace UserRegistrationMSTest
         [DataRow("Kumar")]
         [DataRow("Gupta")]
         [DataRow("Jaiswal")]
-        public void GivenLastName_ShouldReturnTrue_IfFirstLettersIsCapital(string name)
+        public void GivenLastName_ShouldReturnTrue_IfFirstLettersIsCapital(string LastName)
         {
             try
             {
-                string result = patterns.ValidateFirstName(name);
+                string result = patterns.ValidateLastName(LastName);
             }
             catch (UserRegistrationCustomException e)
             {
@@ -115,11 +115,11 @@ namespace UserRegistrationMSTest
         [DataRow("kumar")]
         [DataRow("gupta")]
         [DataRow("jaiswal")]
-        public void GivenLastName_ShouldReturnFalse_FirstNameIsNotStartWith_CapitalLetter(string invalidFirstName)
+        public void GivenLastName_ShouldReturnFalse_FirstNameIsNotStartWith_CapitalLetter(string invalidlastName)
         {
             try
             {
-                string result = patterns.ValidateFirstName(invalidFirstName);
+                string result = patterns.ValidateFirstName(invalidlastName);
             }
             catch (UserRegistrationCustomException e)
             {
@@ -137,17 +137,38 @@ namespace UserRegistrationMSTest
         [DataRow("KUMAR")]
         [DataRow("GUPTA")]
         [DataRow("JAISWAL")]
-        public void GivenLastName_ShouldReturnFalse_IfAllLettersAreInCapital(string invalidFirstName)
+        public void GivenLastName_ShouldReturnFalse_IfAllLettersAreInCapital(string invalidlastName)
         {
             try
             {
-                string result = patterns.ValidateFirstName(invalidFirstName);
+                string result = patterns.ValidateFirstName(invalidlastName);
             }
             catch (UserRegistrationCustomException e)
             {
                 Assert.AreEqual("Invalid First Name", e.Message);
             }
 
+        }
+        [TestMethod]
+        [DataRow("91 9976655")]
+        [DataRow("91 776655")]
+        [DataRow("91 8776655")]
+        [DataRow("91 976655")]
+        [DataRow("91 98776655")]
+        [DataRow("91 988776655")]
+        [DataRow("919445588776655")]
+        [DataRow("91988776655")]
+        [DataRow("91 9439433808")]
+        public void GivenInvalid_MobileNumber_ShouldReturnFalse(string invalidMobile)
+        {
+            try
+            {
+                string result = patterns.ValidateMobileNumber(invalidMobile);
+            }
+            catch (UserRegistrationCustomException e)
+            {
+                Assert.AreEqual("Invalid mobile number", e.Message);
+            }
         }
     }
 }
