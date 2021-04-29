@@ -11,7 +11,7 @@ namespace UserRegistrationTest
         public static string REGEX_LASTNAME = "^[A-Z][a-z]{3,}$";
         public static string REGEX_MOBILENUMBER = "^[0-9]{2}[ ][0-9]{10}$";
         public static string REGEX_EMAIL = @"^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$";
-        public static string REGEX_PASSWORD = " ^ (?=.*?[A - Z])(?=.*?[a - z])(?=.*?[0 - 9]).{8,}$";
+        public static string REGEX_PASSWORD = " ^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$";
 
         //Validatinf first name, last name , email id, mobile number and password.
         public Func<string, string> ValidateFirstName = x => Regex.IsMatch(x, REGEX_FIRSTNAME) ? "Valid First Name" :
