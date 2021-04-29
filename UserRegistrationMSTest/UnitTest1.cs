@@ -188,5 +188,24 @@ namespace UserRegistrationMSTest
                 Assert.AreEqual("Invalid email id", e.Message);
             }
         }
+        [TestMethod]
+        [DataRow("Abc123")]
+        [DataRow("a1b11c1")]
+        [DataRow("ABC123")]
+        [DataRow("111AAA")]
+        [DataRow("0A1B")]
+        [DataRow("Bishal12")]
+
+        public void GivenPassword_ShouldReturnFalse_WhenItIsNotProper(string invalidEmail)
+        {
+            try
+            {
+                string result = patterns.ValidateEmail(invalidEmail);
+            }
+            catch (UserRegistrationCustomException e)
+            {
+                Assert.AreEqual("Invalid email id", e.Message);
+            }
+        }
     }
 }

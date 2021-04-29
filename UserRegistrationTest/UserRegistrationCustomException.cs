@@ -8,7 +8,7 @@ namespace UserRegistrationTest
     {
         public enum ExceptionType
         {
-            INVALID_FIRSTNAME, INVALID_LASTNAME, INVALID_MOBILENUMBER, INVALID_EMAIL
+            INVALID_FIRSTNAME, INVALID_LASTNAME, INVALID_MOBILENUMBER, INVALID_EMAIL, INVALID_PSSWORD
         }
 
         /// <summary>

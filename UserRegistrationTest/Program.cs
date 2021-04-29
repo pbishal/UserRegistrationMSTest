@@ -18,6 +18,9 @@ namespace UserRegistrationTest
 
             Console.WriteLine("enter the email:");
             Console.WriteLine(patterns.ValidateEmail(Console.ReadLine()));
+
+            Console.WriteLine("enter the password:");
+            Console.WriteLine(patterns.ValidatePassword(Console.ReadLine()));
         }
     }
 }
