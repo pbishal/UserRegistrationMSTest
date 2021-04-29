@@ -5,3 +5,5 @@ TestResult
 bin
 obj
 .csproj
+.cache
+.testlog
