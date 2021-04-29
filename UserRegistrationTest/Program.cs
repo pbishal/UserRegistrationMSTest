@@ -6,7 +6,9 @@ namespace UserRegistrationTest
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to User Registration");
+            Patterns patterns = new Patterns();
+            Console.WriteLine("enter the first name:");
+            Console.WriteLine(patterns.ValidateFirstName(Console.ReadLine()));
         }
     }
 }
